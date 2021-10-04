@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+   
+        <title>Grznaros</title>
+        <style>
+            
+            
+            
+            body {
+              background-image:  url('1382446.png');
+                color: white;
+            }
+          table {
+  border: 3px solid black;
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+}
+            #cookie {
+                 border: 1px solid #ddd;
+  
+  padding: 5px;
+  width: 150px;
+                border-radius: 8px;
+            }
+              #cookie:active {
+            transform: scale(0.93);
+        }
+        
+            #squad {
+                color: red;
+            }
+            #reset {
+                margin-left: 90vh;
+                    
+            }
+            /* buttons maji okopirovany styl */
+           #auto { 
+   
+   
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    background: #000;
+    margin-top: 1vh;
+    top: 1px;
+}
+
+.glow-on-hover {
+    width: 250px;
+    height: 100px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+#autod {
+    position: relative;
+    
+    top: 6px;
+    
+    height: 10vh;
+    
+    justify-content:center;
+    align-items: center;
+    background: #000;
+   
+    
+}
+#autot {
+    position: relative;
+    
+    top: 8px;
+    
+    height: 10vh;
+   
+    justify-content:center;
+    align-items: center;
+    background: #000;
+   
+    
+}
+#autoc {
+     position: relative;
+    
+    top: 10px;
+    
+    height: 10vh;
+    
+    justify-content:center;
+    align-items: center;
+    background: #000;
+    
+}
+#autop {
+    position: relative;
+    
+    top: 12px;
+    
+    height: 10vh;
+    
+    
+   
+    justify-content:center;
+    align-items: center;
+    background: #000;
+}
+
+#tabulka {
+    position: relative;
+    top: 10px;
+    
+}
+      audio {
+    display:none;
+}
+     
+           
+    </style>
+    </head>
+    
+    <body>
+       
+        <h1  style = " margin-left: 40vh ">Klikni na Grznára aby se stal nejlepším dřepařem z Čr</h1>
+       
+
+        <div style=" width: 60%; float: left"><img src="image.jpg" alt="" id = "cookie" style = "width: 400px; margin-left: 70vh;" onclick = "order()" >
+        <p style = " margin-left: 80vh">Grznárovi dřepy: <span id = "squad">0</span></p></div>
+       
+        <div style=" width: 30%; float: right ">
+            <h2>Upgrades</h2>
+    <button class="glow-on-hover" type = "button" id ="auto" onclick="testak()">Nandej si testosteron[<span id="tsts">20</span>]</button>
+
+      <button class="glow-on-hover" type = "button" id ="autod" onclick="piko()">čáru pika jako preworkout[<span id="cenapika">100</span>]</button>
+ <button class="glow-on-hover" type = "button" id ="autot" onclick="downgrade() ">Pokus o dřep 200kg[<span id="vazcena">100</span>]</button>
+<button class="glow-on-hover" type = "button" id ="autoc" onclick="gameover()">Pokus o dřep 350kg yolo[<span id="overcena">250</span>]</button>
+<button class="glow-on-hover" type = "button" id ="autop" onclick="egoboost()">Uploadnout hate video na naturaly na yt[<span id="egocena">250</span>]</button>
+ 
+</div>
+       
+<div id="tabulka" style=" width: 30%; float: left;"> 
+    <p id = "demo"></p>
+  <table >
+  <tr>
+      <th>Zásoby pika: </th>
+      <th id = "pikao">0</th>
+  </tr>
+  <tr>
+      
+      
+      <th>Failnul jsi: </th>
+      <th id = "vazy">0</th>
+  </tr>  
+  <tr>
+      
+    <th>Zásoby tst: </th>
+    <th id = "tst">0</th>
+ 
+  </tr>
+  <tr>
+      <th>Zásoby egoismu: </th>
+      <th id = "ego">0</th>
+  </tr>
+</table>
+
+
+</div>
+          <div style="  float: right; margin-top: 10vh">
+            <h2>Created by Filip</h2>
+            <button onclick = "speech()">Zandej speech</button>
+   
+</div>
+
+
+        <script>
+        var clicks = 0;
+        var tsts = 20;
+        var tst = 0;
+        var cenapika = 100;
+        var pikao = 0;
+        var vazcena = 100;
+        var vazy = 0;
+        var overcena = 250;
+        var egocena = 250;
+        var ego = 0;
+        var pikop = 0;
+        var egop = 0;
+        var i = 0;
+        
+
+var txt = 'TĚLO JE MRDKA ! Musíš ho zničit !! Jinak půjde vždycky proti tobě!'; 
+var speed = 50; 
+        function order() {
+            clicks = clicks + 1;
+            squad.innerHTML = clicks;
+              let audio = new Audio('CLICK.m4a');
+        audio.play();
+           
+        }
+       
+          function testak() {
+        if (clicks >= tsts) {
+            clicks = clicks - tsts;
+            tst = tst + 1;
+          tsts = Math.round(tsts * 1.15);
+       let audio = new Audio('ROIDRAGE.m4a');
+        audio.play();
+       document.getElementById('tsts').innerHTML = tsts;
+       document.getElementById('squad').innerHTML = clicks;
+       document.getElementById('tst').innerHTML = tst;
+            
+        }}
+    function piko() {
+        if (clicks >= cenapika) {
+            clicks = clicks - cenapika;
+            pikao = pikao + 1;
+            pikop = pikop + 5;
+           cenapika = Math.round(cenapika * 1.15);
+         
+            let audio = new Audio('grznar.m4a');
+        audio.play();
+            
+            document.getElementById('squad').innerHTML = clicks;
+            document.getElementById('pikao').innerHTML = pikao;
+            document.getElementById('cenapika').innerHTML = cenapika;
+            
+        }}
+      function egoboost() {
+        if (clicks >= egocena) {
+            clicks = clicks - egocena;
+           ego = ego + 1;
+           
+           egop = egop + 10;
+
+            document.getElementById('squad').innerHTML =clicks;
+             document.getElementById('ego').innerHTML = ego;
+           document.getElementById('egocena').innerHTML = egocena;
+        }}
+     function gameover() {
+        if (clicks >= overcena) {
+             
+           
+            
+              
+            squad.innerHTML = clicks;
+          
+            overcena.innerHTML = overcena;
+             document.write("Je konec, Grznár si utrhl vazy a už si nezadřepuje... :(");
+            
+            
+            
+
+            
+        }}
+     function downgrade() {
+        if (clicks >= vazcena) {
+            clicks = clicks - vazcena;
+            vazy= vazy + 1 ;
+            vazcena = Math.round(vazcena * 1.15);
+            let audio = new Audio('drepy.m4a');
+        audio.play();
+                
+           document.getElementById('squad').innerHTML = clicks;
+            document.getElementById('vazy').innerHTML = vazy;
+            document.getElementById('vazcena').innerHTML = vazcena;
+           
+        }}
+      setInterval(function () {
+          
+        clicks = clicks + tst;
+       clicks = clicks + pikop ;
+       clicks = clicks + vazy;
+       clicks = clicks + egop;
+        document.getElementById('squad').innerHTML = clicks;
+        
+    }, 1000); // 1000ms= 1 second
+          
+        function speech() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(speech, speed);
+  }
+}
+     
+ 
+    </script>
+    
+    </body>
+   
+</html>
